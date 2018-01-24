@@ -1,3 +1,3 @@
-# A basic n-gram_model in python
+# A basic ngram model in python
 
 TODO
