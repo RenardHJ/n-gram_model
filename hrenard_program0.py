@@ -17,7 +17,7 @@ class ngram:
 		pass
 
 def main():
-	# default settings
+	# Default settings
 	fileName = "corpus.txt"
 	nValue = 3
 	generatedWordCount = 100
