@@ -29,7 +29,7 @@ def main():
 	# Cleaning file - removing special characters and lower casing all characters
 	cleanFileOutput = re.sub(r"[^a-zA-Z0-9]+", ' ', fileOutput).lower()
 
-	#ngram generation
+	# Generating ngram models
 	ng = ngram(cleanFileOutput)
 
 	#unigram
