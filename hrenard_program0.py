@@ -31,14 +31,8 @@ class ngram:
 		pass
 
 def main():
-<<<<<<< HEAD
-	# default settings
-	fileName = 'corpus.txt'
-=======
 	# Default settings
-	fileName = "corpus.txt"
-	nValue = 3
->>>>>>> 9e74dc92dcd98ac0031dd8788a001bf21b77b282
+	fileName = 'corpus.txt'
 	generatedWordCount = 100
 	
 	# Reading in lines from file
@@ -48,23 +42,18 @@ def main():
 	# Cleaning file - removing special characters and lower casing all characters
 	cleanFileOutput = re.sub(r'[^a-zA-Z0-9]+', ' ', fileOutput).lower()
 
-<<<<<<< HEAD
-	#ngram generation
-	ng = ngram(cleanFileOutput, generatedWordCount)
-=======
 	# Generating ngram models
-	ng = ngram(cleanFileOutput)
->>>>>>> 9e74dc92dcd98ac0031dd8788a001bf21b77b282
+	ng = ngram(cleanFileOutput, generatedWordCount)
 
-	#unigram
+	# Unigram
 	print("Unigram:")
 	ng.unigram()
 
-	#bigram
+	# Bigram
 	print("\nBigram:")
 	ng.bigram()
 
-	#trigram
+	# Trigram
 	print("\nTrigram:")
 	ng.trigram()
 main()
