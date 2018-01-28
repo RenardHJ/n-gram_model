@@ -40,7 +40,24 @@ class ngram:
 
 	def trigram(self):
 		# selects a word based off of the previous two words.
-		pass
+		output = []
+
+		prevWord = numpy.random.choice(self.unigramModel)
+		prevWord2 = numpy.random.choice([e[1] for e in self.bigramModel if e[0] == prevWord])
+		output.append(prevWord)
+		output.append(prevWord2)
+		
+		#print([e[2] for e in self.trigramModel if e[0] == prevWord and e[1] == prevWord2])
+
+		for i in range(self.count):
+			temp = prevWord2
+			prevWord2 = numpy.random.choice([e[2] for e in self.trigramModel if e[0] == prevWord and e[1] == prevWord2])
+			prevWord = temp
+			output.append(prevWord2)
+
+		output = ' '.join(output).capitalize() + '.'
+		
+		return(output)
 
 def main():
 	# Default settings
@@ -52,7 +69,7 @@ def main():
 	fileOutput = f.read()
 	
 	# Cleaning file - removing special characters and lower casing all characters
-	cleanFileOutput = re.sub(r'[^a-zA-Z0-9]+', ' ', fileOutput).lower()
+	cleanFileOutput = re.sub(r'[^a-zA-Z0-9\']+', ' ', fileOutput).lower()
 
 	# Generating ngram models
 	ng = ngram(cleanFileOutput, generatedWordCount)
@@ -67,6 +84,6 @@ def main():
 
 	# Trigram
 	print("\nTrigram:")
-	ng.trigram()
+	print(ng.trigram())
 
 main()
