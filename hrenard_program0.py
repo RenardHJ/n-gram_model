@@ -30,7 +30,7 @@ class ngram:
 		prevWord = numpy.random.choice(self.unigramModel)
 		output.append(prevWord)
 
-		for i in range(self.count):
+		for i in range(self.count -1):
 			prevWord = numpy.random.choice([e[1] for e in self.bigramModel if e[0] == prevWord])
 			output.append(prevWord)
 
@@ -49,7 +49,7 @@ class ngram:
 		
 		#print([e[2] for e in self.trigramModel if e[0] == prevWord and e[1] == prevWord2])
 
-		for i in range(self.count):
+		for i in range(self.count - 2):
 			temp = prevWord2
 			prevWord2 = numpy.random.choice([e[2] for e in self.trigramModel if e[0] == prevWord and e[1] == prevWord2])
 			prevWord = temp
